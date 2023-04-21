@@ -12,3 +12,21 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const gallery = document.getElementsByClassName('gallery');
+
+const markup = images
+  .map(
+    (image) => `<li><img src="${image.url}" alt="${image.alt}" class="flex" /></li>`,
+  )
+  .join('');
+
+gallery[0].insertAdjacentHTML('afterbegin', markup);
+
+const galleryImages = document.getElementsByClassName('flex');
+// eslint-disable-next-line no-restricted-syntax
+for (const image of galleryImages) {
+  image.style.height = '240px';
+  image.style.width = '400px';
+  image.style.borderRadius = '4px';
+}
