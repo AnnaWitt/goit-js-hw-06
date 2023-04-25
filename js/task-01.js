@@ -1,9 +1,9 @@
 const items = document.querySelectorAll('.item');
 console.log(`Number of categories: ${items.length}`);
 
-// eslint-disable-next-line no-restricted-syntax
-for (const item of items) {
-  console.log(`Category: ${item.firstElementChild.textContent}`);
-  const elementNumber = item.querySelectorAll('li');
-  console.log(`Elements: ${elementNumber.length}`);
-}
+items.forEach((item) => {
+  const header = item.querySelector('h2').textContent;
+  console.log(`Category: ${header}`);
+  const numberEl = item.querySelectorAll('li').length;
+  console.log(`Elements: ${numberEl}`);
+});

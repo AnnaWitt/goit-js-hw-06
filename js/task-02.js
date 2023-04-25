@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 const ingredients = [
   'Potatoes',
   'Mushrooms',
@@ -9,10 +8,11 @@ const ingredients = [
 ];
 const ingredientsList = document.querySelector('#ingredients');
 
-ingredients.forEach((ingredient) => {
-  const listElement = document.createElement('li');
-  listElement.textContent = ingredient;
-  listElement.classList.add('item');
-  ingredientsList.append(listElement);
+const ingredientElements = ingredients.map((ingredient) => {
+  const ingredientItem = document.createElement('li');
+  ingredientItem.textContent = ingredient;
+  ingredientItem.classList.add('item');
+  return ingredientItem.outerHTML;
 });
-console.log(ingredientsList);
+const ingredientsEl = ingredientElements.join('');
+ingredientsList.innerHTML = ingredientsEl;
